@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Display all active ports and services
+# Function to display all active ports and services
 display_ports() {
     echo "Active Ports and Services:"
     netstat -tulnp | awk '
@@ -23,7 +23,7 @@ display_ports() {
     }
     '
 
-    # Process the temp. file to get the user information
+    # Process the temporary file to get the user information
     while read -r host port pid service; do
         # Check if the PID is valid and retrieve the username
         if [ -n "$pid" ]; then
@@ -35,7 +35,7 @@ display_ports() {
         fi
     done < /tmp/netstat_tmp.txt
 
-    # Enforce clean up the temporary file
+    # Clean up the temporary file
     rm /tmp/netstat_tmp.txt
 }
 
@@ -118,6 +118,7 @@ list_nginx_domains() {
         done
     done | sort | uniq
 }
+
 
 # Function to provide detailed configuration information for a specific domain
 nginx_domain_details() {

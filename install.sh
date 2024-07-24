@@ -35,6 +35,9 @@ if [[ "$OS" == "linux" ]]; then
     # Install finger for user information lookup
     sudo apt-get install -y finger
 
+    # Create the directory if it does not exist
+    sudo mkdir -p /usr/local/bin
+
     # Copy the devopsfetch script to /usr/local/bin for global accessibility
     sudo cp devopsfetch.sh /usr/local/bin/devopsfetch
 
@@ -90,6 +93,9 @@ elif [[ "$OS" == "mac" ]]; then
 
     # Install necessary packages using Homebrew
     brew install docker nginx jq
+
+    # Create the directory if it does not exist
+    sudo mkdir -p /usr/local/bin
 
     # Copy the devopsfetch script to /usr/local/bin for global accessibility
     sudo cp devopsfetch.sh /usr/local/bin/devopsfetch
